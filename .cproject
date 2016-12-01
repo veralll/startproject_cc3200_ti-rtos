@@ -68,7 +68,7 @@
 									<listOptionValue builtIn="false" value="255"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compilerID.DISPLAY_ERROR_NUMBER.729243922" name="Emit diagnostic identifier numbers (--display_error_number, -pden)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compilerID.DISPLAY_ERROR_NUMBER" value="true" valueType="boolean"/>
-								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compilerID.UNDEFINE.459709474" name="Undefine NAME (--undefine, -U)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compilerID.UNDEFINE" valueType="stringList"/>
+								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compilerID.UNDEFINE.459709474" name="Undefine NAME (--undefine, -U)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compilerID.UNDEFINE"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compiler.inputType__C_SRCS.1699516932" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compiler.inputType__CPP_SRCS.1802186998" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compiler.inputType__ASM_SRCS.271997222" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.compiler.inputType__ASM_SRCS"/>
@@ -81,8 +81,8 @@
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.linkerID.MAP_FILE.1477343579" name="Link information (map) listed into &lt;file&gt; (--map_file, -m)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.linkerID.MAP_FILE" value="&quot;${ProjName}.map&quot;" valueType="string"/>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.linkerID.LIBRARY.1536447929" name="Include library file or command file as input (--library, -l)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.linkerID.LIBRARY" valueType="libs">
 									<listOptionValue builtIn="false" value="&quot;libc.a&quot;"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="&quot;C:\ti\tirex-content\tirtos_cc32xx_2_16_00_08\products\CC3200_driverlib_1.1.0\driverlib\ccs\Release\driverlib.a&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;C:\ti\CC3200SDK_1.2.0\cc3200-sdk\oslib\ccs\ti_rtos\ti_rtos.a&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\ti\tirex-content\tirtos_cc32xx_2_16_00_08\products\CC3200_driverlib_1.1.0\driverlib\ccs\Release\driverlib.a&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\TI\CC3200SDK_1.2.0\cc3200-sdk\oslib\ccs\ti_rtos\ti_rtos.a&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\ti\CC3200SDK_1.2.0\cc3200-sdk\simplelink\ccs\OS\simplelink.a&quot;"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.TMS470_15.12.linkerID.SEARCH_PATH.1771896256" name="Add &lt;dir&gt; to library search path (--search_path, -i)" superClass="com.ti.ccstudio.buildDefinitions.TMS470_15.12.linkerID.SEARCH_PATH" valueType="libPaths">

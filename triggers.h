@@ -8,13 +8,10 @@
 #ifndef TRIGGERS_H_
 #define TRIGGERS_H_
 
-typedef struct {
+typedef void* TriggerData;
 
-}TriggerData;
-
-
-typedef int(*ExecuteFxn)(TriggerData*);
-typedef int(*SetupFxn)(void);
+typedef int (*ExecuteFxn)(TriggerData);
+typedef int (*SetupFxn)(void);
 
 typedef struct {
 	char* name;
@@ -22,25 +19,28 @@ typedef struct {
 	ExecuteFxn execute;
 } Action;
 
+typedef int (*ConditionCheckFxn)(TriggerData);
 
-typedef int(*ConditionCheckFxn)(TriggerData*);
-typedef TriggerData*(*TriggerDataFxn)(void);
+typedef TriggerData (*TriggerDataFxn)(void);
 
 typedef struct {
 	char* name;
 	Action* action;
 	ConditionCheckFxn check;
 	TriggerDataFxn readTrigger;
+	int allowConcurrent;
+	int activating;
 } Trigger;
 
+Trigger* newTrigger(char* name, Action* action, ConditionCheckFxn checkFxn,
+		TriggerDataFxn readDataFxn, int allowConcurrent);
 
+Trigger* makeGPIOTrigger(Action* a);
 
+int execTrigger(Trigger* trigger);
 
-
-void fireAction(Action* action, TriggerData* data);
+void fireAction(Trigger* trigger, TriggerData data);
 
 Action* newAction(char* name, SetupFxn setf, ExecuteFxn exef);
-
-
 
 #endif /* TRIGGERS_H_ */

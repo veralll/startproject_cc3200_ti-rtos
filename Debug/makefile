@@ -4,13 +4,15 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS
+CG_TOOL_ROOT := C:/TI/ccsv6/tools/compiler/arm_15.12.3.LTS
 
 GEN_OPTS__FLAG := --cmd_file="configPkg/compiler.opt"
 GEN_CMDS__FLAG := -l"configPkg/linker.cmd"
 
 ORDERED_OBJS += \
 "./CC3200_LAUNCHXL.obj" \
+"./GPIOtrigger.obj" \
+"./LEDAction.obj" \
 "./main.obj" \
 "./pin_mux_config.obj" \
 "./simplelinklibrary.obj" \
@@ -20,7 +22,7 @@ ORDERED_OBJS += \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
 -l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/CC3200_driverlib_1.1.0/driverlib/ccs/Release/driverlib.a" \
--l"C:/ti/CC3200SDK_1.2.0/cc3200-sdk/oslib/ccs/ti_rtos/ti_rtos.a" \
+-l"C:/TI/CC3200SDK_1.2.0/cc3200-sdk/oslib/ccs/ti_rtos/ti_rtos.a" \
 -l"C:/ti/CC3200SDK_1.2.0/cc3200-sdk/simplelink/ccs/OS/simplelink.a" \
 
 -include ../makefile.init
@@ -147,13 +149,13 @@ all: startproject_cc3200_ti-rtos.out
 startproject_cc3200_ti-rtos.out: $(OBJS) $(CMD_SRCS) $(LDS_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: ARM Linker'
-	"C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me -g --define=cc3200 --define=SL_MEMORY_MGMT_DYNAMIC --define=SL_PLATFORM_MULTI_THREADED --define=PART_CC3200 --define=ccs --define=CCWARE --diag_wrap=off --diag_warning=225 --diag_warning=255 --display_error_number --abi=eabi -z -m"startproject_cc3200_ti-rtos.map" --stack_size=0x1024 --heap_size=0x4096 -i"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/CC3200_driverlib_1.1.0/driverlib" -i"C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/lib" -i"C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/include" --reread_libs --diag_wrap=off --warn_sections --verbose_diagnostics --issue_remarks --display_error_number --xml_link_info="startproject_cc3200_ti-rtos_linkInfo.xml" --rom_model -o "startproject_cc3200_ti-rtos.out" $(ORDERED_OBJS)
+	"C:/TI/ccsv6/tools/compiler/arm_15.12.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=vfplib -me -g --define=cc3200 --define=SL_MEMORY_MGMT_DYNAMIC --define=SL_PLATFORM_MULTI_THREADED --define=PART_CC3200 --define=ccs --define=CCWARE --diag_wrap=off --diag_warning=225 --diag_warning=255 --display_error_number --abi=eabi -z -m"startproject_cc3200_ti-rtos.map" --stack_size=0x1024 --heap_size=0x4096 -i"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/CC3200_driverlib_1.1.0/driverlib" -i"C:/TI/ccsv6/tools/compiler/arm_15.12.3.LTS/lib" -i"C:/TI/ccsv6/tools/compiler/arm_15.12.3.LTS/include" --reread_libs --diag_wrap=off --warn_sections --verbose_diagnostics --issue_remarks --display_error_number --xml_link_info="startproject_cc3200_ti-rtos_linkInfo.xml" --rom_model -o "startproject_cc3200_ti-rtos.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 startproject_cc3200_ti-rtos.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: ARM Hex Utility'
-	"C:/ti/ccsv6/tools/compiler/arm_15.12.3.LTS/bin/armhex"  -o "startproject_cc3200_ti-rtos.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/TI/ccsv6/tools/compiler/arm_15.12.3.LTS/bin/armhex"  -o "startproject_cc3200_ti-rtos.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
@@ -161,8 +163,8 @@ startproject_cc3200_ti-rtos.hex: $(EXE_OUTPUTS)
 clean:
 	-$(RM) $(GEN_MISC_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(BIN_OUTPUTS__QUOTED)$(GEN_OPTS__QUOTED)$(GEN_CMDS__QUOTED)
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
-	-$(RM) "CC3200_LAUNCHXL.d" "main.d" "pin_mux_config.d" "simplelinklibrary.d" "startproject.d" "triggers.d" 
-	-$(RM) "CC3200_LAUNCHXL.obj" "main.obj" "pin_mux_config.obj" "simplelinklibrary.obj" "startproject.obj" "triggers.obj" 
+	-$(RM) "CC3200_LAUNCHXL.d" "GPIOtrigger.d" "LEDAction.d" "main.d" "pin_mux_config.d" "simplelinklibrary.d" "startproject.d" "triggers.d" 
+	-$(RM) "CC3200_LAUNCHXL.obj" "GPIOtrigger.obj" "LEDAction.obj" "main.obj" "pin_mux_config.obj" "simplelinklibrary.obj" "startproject.obj" "triggers.obj" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

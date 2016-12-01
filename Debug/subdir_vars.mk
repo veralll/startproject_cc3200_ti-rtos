@@ -14,6 +14,8 @@ CFG_SRCS += \
 
 C_SRCS += \
 ../CC3200_LAUNCHXL.c \
+../GPIOtrigger.c \
+../LEDAction.c \
 ../main.c \
 ../pin_mux_config.c \
 ../simplelinklibrary.c \
@@ -22,6 +24,8 @@ C_SRCS += \
 
 OBJS += \
 ./CC3200_LAUNCHXL.obj \
+./GPIOtrigger.obj \
+./LEDAction.obj \
 ./main.obj \
 ./pin_mux_config.obj \
 ./simplelinklibrary.obj \
@@ -30,6 +34,8 @@ OBJS += \
 
 C_DEPS += \
 ./CC3200_LAUNCHXL.d \
+./GPIOtrigger.d \
+./LEDAction.d \
 ./main.d \
 ./pin_mux_config.d \
 ./simplelinklibrary.d \
@@ -58,6 +64,8 @@ GEN_MISC_DIRS__QUOTED += \
 
 C_DEPS__QUOTED += \
 "CC3200_LAUNCHXL.d" \
+"GPIOtrigger.d" \
+"LEDAction.d" \
 "main.d" \
 "pin_mux_config.d" \
 "simplelinklibrary.d" \
@@ -66,6 +74,8 @@ C_DEPS__QUOTED += \
 
 OBJS__QUOTED += \
 "CC3200_LAUNCHXL.obj" \
+"GPIOtrigger.obj" \
+"LEDAction.obj" \
 "main.obj" \
 "pin_mux_config.obj" \
 "simplelinklibrary.obj" \
@@ -74,6 +84,8 @@ OBJS__QUOTED += \
 
 C_SRCS__QUOTED += \
 "../CC3200_LAUNCHXL.c" \
+"../GPIOtrigger.c" \
+"../LEDAction.c" \
 "../main.c" \
 "../pin_mux_config.c" \
 "../simplelinklibrary.c" \

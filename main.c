@@ -50,29 +50,22 @@ int SPAWN_TASK_PRI = 3;
 
 
 #include "triggers.h"
+#include "LEDAction.h"
+#include "GPIOtrigger.h"
 
+Action* blinkaction;
+Trigger* button;
 
-int gpioblink(TriggerData* data) {
-	GPIO_toggle(Board_LED0);
-	return 0;
-}
-
-int setupBlink() {
-	return 0;
-}
-
-void buttonTrigger(unsigned int index) {
+void GPIO_int_1(unsigned int index) {
 	if (index == 1) {
-		System_printf("index: %d\n", index);
-		System_flush();
-		Action* blink = newAction("blink", &setupBlink, &gpioblink);
-		fireAction(blink, NULL);
+		execTrigger(button);
 	}
 }
 
 /*
  *  ======== main ========
  */
+
 int main(void)
 {
     /* Call board init functions */
@@ -89,12 +82,14 @@ int main(void)
     System_flush();
 
     /* Turn off All LEDs. It will be used as a connection indicator */
-    GPIO_write(Board_LED0, Board_LED_ON); //Red
-    GPIO_write(Board_LED1, Board_LED_ON); //Orange
-    GPIO_write(Board_LED2, Board_LED_ON); //Green
 
-    GPIO_setCallback(Board_BUTTON1, &buttonTrigger);
+
+    GPIO_setCallback(Board_BUTTON1, &GPIO_int_1);
     GPIO_enableInt(Board_BUTTON1);
+
+    blinkaction = makeLEDAction();
+
+    Trigger* button = makeGPIOTrigger(blinkaction);
 
 
     /*

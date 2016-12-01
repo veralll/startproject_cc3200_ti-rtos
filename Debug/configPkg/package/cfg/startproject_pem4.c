@@ -1676,7 +1676,7 @@ __FAR__ const xdc_SizeT ti_sysbios_knl_Task_Module_State_terminatedQ__O = offset
  *  Define absolute path prefix for this executable's
  *  configuration generated files.
  */
-xdc__META(__ASM__, "@(#)__ASM__ = C:/ti/starterproject/startproject_cc3200_ti-rtos-master/Debug/configPkg/package/cfg/startproject_pem4");
+xdc__META(__ASM__, "@(#)__ASM__ = C:/TI/git/startproject_cc3200_ti-rtos.git/trunk/Debug/configPkg/package/cfg/startproject_pem4");
 
 /*
  *  ======== __ISA__ ========

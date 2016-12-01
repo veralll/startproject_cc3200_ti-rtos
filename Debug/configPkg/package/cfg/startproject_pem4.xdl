@@ -9,17 +9,17 @@
  */
 
 
--l"C:\ti\starterproject\startproject_cc3200_ti-rtos-master\Debug\configPkg\package\cfg\startproject_pem4.oem4"
--l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/mw/wifi/cc3x00/lib/cc3x00_host_driver.aem4"
--l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/lib/drivers_cc32xxware.aem4"
--l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/lib/drivers_wifi_cc32xxware.aem4"
--l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/lib/power_cc3200_tirtos.aem4"
--l"C:\ti\tirex-content\tirtos_cc32xx_2_16_00_08\products\tidrivers_cc32xx_2_16_00_08\packages\ti\mw\fatfs\lib\release\ti.mw.fatfs.aem4"
--l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/ports/lib/tirtosport.aem4"
--l"C:\ti\starterproject\startproject_cc3200_ti-rtos-master\src\sysbios\sysbios.aem4"
--l"C:\ti\tirex-content\tirtos_cc32xx_2_16_00_08\products\bios_6_45_01_29\packages\ti\targets\arm\rtsarm\lib\ti.targets.arm.rtsarm.aem4"
--l"C:\ti\tirex-content\tirtos_cc32xx_2_16_00_08\products\bios_6_45_01_29\packages\ti\targets\arm\rtsarm\lib\boot.aem4"
--l"C:\ti\tirex-content\tirtos_cc32xx_2_16_00_08\products\bios_6_45_01_29\packages\ti\targets\arm\rtsarm\lib\auto_init.aem4"
+-l"C:\TI\git\startproject_cc3200_ti-rtos.git\trunk\Debug\configPkg\package\cfg\startproject_pem4.oem4"
+-l"C:/TI/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/mw/wifi/cc3x00/lib/cc3x00_host_driver.aem4"
+-l"C:/TI/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/lib/drivers_cc32xxware.aem4"
+-l"C:/TI/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/lib/drivers_wifi_cc32xxware.aem4"
+-l"C:/TI/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/lib/power_cc3200_tirtos.aem4"
+-l"C:\TI\tirex-content\tirtos_cc32xx_2_16_00_08\products\tidrivers_cc32xx_2_16_00_08\packages\ti\mw\fatfs\lib\release\ti.mw.fatfs.aem4"
+-l"C:/TI/tirex-content/tirtos_cc32xx_2_16_00_08/products/tidrivers_cc32xx_2_16_00_08/packages/ti/drivers/ports/lib/tirtosport.aem4"
+-l"C:\TI\git\startproject_cc3200_ti-rtos.git\trunk\src\sysbios\sysbios.aem4"
+-l"C:\TI\tirex-content\tirtos_cc32xx_2_16_00_08\products\bios_6_45_01_29\packages\ti\targets\arm\rtsarm\lib\ti.targets.arm.rtsarm.aem4"
+-l"C:\TI\tirex-content\tirtos_cc32xx_2_16_00_08\products\bios_6_45_01_29\packages\ti\targets\arm\rtsarm\lib\boot.aem4"
+-l"C:\TI\tirex-content\tirtos_cc32xx_2_16_00_08\products\bios_6_45_01_29\packages\ti\targets\arm\rtsarm\lib\auto_init.aem4"
 
 --retain="*(xdc.meta)"
 

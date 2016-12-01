@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -llibc.a -l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/CC3200_driverlib_1.1.0/driverlib/ccs/Release/driverlib.a" -l"C:/ti/CC3200SDK_1.2.0/cc3200-sdk/oslib/ccs/ti_rtos/ti_rtos.a" -l"C:/ti/CC3200SDK_1.2.0/cc3200-sdk/simplelink/ccs/OS/simplelink.a"
+LIBS := -llibc.a -l"C:/ti/tirex-content/tirtos_cc32xx_2_16_00_08/products/CC3200_driverlib_1.1.0/driverlib/ccs/Release/driverlib.a" -l"C:/TI/CC3200SDK_1.2.0/cc3200-sdk/oslib/ccs/ti_rtos/ti_rtos.a" -l"C:/ti/CC3200SDK_1.2.0/cc3200-sdk/simplelink/ccs/OS/simplelink.a"
 
