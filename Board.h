@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Texas Instruments Incorporated
+ * Copyright (c) 2015, Texas Instruments Incorporated
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -37,39 +37,52 @@
 extern "C" {
 #endif
 
-#include "CC3200_LP.h"
+#include "CC3200_LAUNCHXL.h"
 
-#define Board_initDMA                CC3200_LP_initDMA
-#define Board_initGeneral            CC3200_LP_initGeneral
-#define Board_initGPIO               CC3200_LP_initGPIO
-#define Board_initI2C                CC3200_LP_initI2C
-#define Board_initSDSPI              CC3200_LP_initSDSPI
-#define Board_initSPI                CC3200_LP_initSPI
-#define Board_initUART               CC3200_LP_initUART
-#define Board_initWatchdog           CC3200_LP_initWatchdog
+#define Board_initDMA                CC3200_LAUNCHXL_initDMA
+#define Board_initGeneral            CC3200_LAUNCHXL_initGeneral
+#define Board_initGPIO               CC3200_LAUNCHXL_initGPIO
+#define Board_initI2C                CC3200_LAUNCHXL_initI2C
+#define Board_initI2S                CC3200_LAUNCHXL_initI2S
+#define Board_initPWM                CC3200_LAUNCHXL_initPWM
+#define Board_initSDSPI              CC3200_LAUNCHXL_initSDSPI
+#define Board_initSPI                CC3200_LAUNCHXL_initSPI
+#define Board_initUART               CC3200_LAUNCHXL_initUART
+#define Board_initWatchdog           CC3200_LAUNCHXL_initWatchdog
+#define Board_initWiFi               CC3200_LAUNCHXL_initWiFi
 
-#define Board_LED_ON                 CC3200_LP_LED_ON
-#define Board_LED_OFF                CC3200_LP_LED_OFF
-#define Board_LED0                   CC3200_LP_LED_D7
-#define Board_LED1                   CC3200_LP_LED_D6
-#define Board_LED2                   CC3200_LP_LED_D5
-#define Board_BUTTON0                CC3200_LP_SW2
-#define Board_BUTTON1                CC3200_LP_SW3
+#define Board_LED_ON                 CC3200_LAUNCHXL_LED_ON
+#define Board_LED_OFF                CC3200_LAUNCHXL_LED_OFF
+#define Board_LED0                   CC3200_LAUNCHXL_LED_D7
+ /*
+  *  CC3200_LAUNCHXL_LED_D5 and CC3200_LAUNCHXL_LED_D6 are shared with the I2C
+  *  and PWM peripherals. In order for those examples to work, these LEDs are
+  *  taken out of gpioPinCOnfig[]
+  */
+#define Board_LED1                   CC3200_LAUNCHXL_LED_D7
+#define Board_LED2                   CC3200_LAUNCHXL_LED_D7
+#define Board_BUTTON0                CC3200_LAUNCHXL_SW2
+#define Board_BUTTON1                CC3200_LAUNCHXL_SW3
 
-#define Board_gpioCallbacks0         CC3200_LP_gpioPortA1Callbacks
-#define Board_gpioCallbacks1         CC3200_LP_gpioPortA2Callbacks
+#define Board_I2C0                   CC3200_LAUNCHXL_I2C0
+#define Board_I2C_TMP                CC3200_LAUNCHXL_I2C0
 
-#define Board_I2C0                   CC3200_LP_I2C0
-#define Board_I2C_TMP                CC3200_LP_I2C0
+#define Board_I2S0                   CC3200_LAUNCHXL_I2S0
 
-#define Board_SDSPI0                 CC3200_LP_SDSPI0
+#define Board_PWM0                   CC3200_LAUNCHXL_PWM6
+#define Board_PWM1                   CC3200_LAUNCHXL_PWM7
 
-#define Board_SPI0                   CC3200_LP_SPI0
+#define Board_SDSPI0                 CC3200_LAUNCHXL_SDSPI0
 
-#define Board_UART0                  CC3200_LP_UART0
-#define Board_UART1                  CC3200_LP_UART1
+#define Board_SPI0                   CC3200_LAUNCHXL_SPI0
 
-#define Board_WATCHDOG0              CC3200_LP_WATCHDOG0
+#define Board_UART0                  CC3200_LAUNCHXL_UART0
+#define Board_UART1                  CC3200_LAUNCHXL_UART1
+
+#define Board_WATCHDOG0              CC3200_LAUNCHXL_WATCHDOG0
+
+#define Board_WIFI                   CC3200_LAUNCHXL_WIFI
+#define Board_WIFI_SPI               CC3200_LAUNCHXL_SPI1
 
 /* Board specific I2C addresses */
 #define Board_TMP006_ADDR            (0x41)

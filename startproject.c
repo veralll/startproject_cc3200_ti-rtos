@@ -70,6 +70,10 @@
 
 #include "Board.h"
 
+#define bool unsigned short
+#define true 1
+#define false 0
+
 //*****************************************************************************
 // Globals used by sockets and simplelink
 //*****************************************************************************
@@ -177,19 +181,19 @@ void SimpleLinkSockEventHandler(SlSockEvent_t *pSock)
        switch( pSock->Event )
     {
         case SL_SOCKET_TX_FAILED_EVENT:
-            switch( pSock->EventData.status )
+            switch( pSock->socketAsyncEvent.SockTxFailData.status)
             {
                 case SL_ECLOSE:
                     System_printf("[SOCK ERROR] - close socket (%d) operation "
                     "failed to transmit all queued packets\n\n",
-                           pSock->EventData.sd);
+                           pSock->socketAsyncEvent.SockTxFailData.sd);
                     System_printf("\n");
                     System_flush();
                     break;
                 default:
                     System_printf("[SOCK ERROR] - TX FAILED : socket %d , reason"
                         "(%d) \n\n",
-                           pSock->EventData.sd, pSock->EventData.status);
+                           pSock->socketAsyncEvent.SockTxFailData.sd, pSock->socketAsyncEvent.SockTxFailData.status);
                     System_printf("\n");
                     System_flush();
             }
@@ -238,33 +242,6 @@ void SimpleLinkNetAppEventHandler(SlNetAppEvent_t *pArgs)
         default:
             break;
     }
-}
-
-///*****************************************************************************
-//! smartConfigFxn
-//!
-//! Starts the Smart Config process which allows the user to tell the CC3100
-//! which AP to connect to, using a smart phone app. Downloads available here:
-//! http://www.ti.com/tool/smartconfig
-//******************************************************************************
-void smartConfigFxn()
-{
-  uint8_t policyVal;
-
-  // Turn LED to Yellow to indicate that device is in smartconfig mode
-  GPIO_write(Board_LED0, Board_LED_OFF); //Blue
-  GPIO_write(Board_LED1, Board_LED_ON); //Green
-  GPIO_write(Board_LED2, Board_LED_ON); //Red
-
-  /* Set auto connect policy */
-  sl_WlanPolicySet(SL_POLICY_CONNECTION,
-                   SL_CONNECTION_POLICY(1, NULL, NULL, NULL, NULL),
-                   &policyVal,
-                   sizeof(policyVal));
-
-  /* Start SmartConfig using unsecured method. */
-  sl_WlanSmartConfigStart(NULL, SMART_CONFIG_CIPHER_NONE, NULL, NULL,
-                          NULL, NULL, NULL, NULL);
 }
 
 
@@ -432,12 +409,14 @@ Void startproject(UArg arg0, UArg arg1)
 		 * Wait for the WiFi to connect to an AP. If a profile for the AP in
 		 * use has not been stored yet, press Board_BUTTON0 to start SmartConfig.
 		 */
+        /*
 		while ((deviceConnected != true) || (ipAcquired != true)) {
 			/*
 			 *  Start SmartConfig if a button is pressed. This could be done with
 			 *  GPIO interrupts, but for simplicity polling is used to check the
 			 *  button.
 			 */
+        /*
 
 			currButton = GPIO_read(Board_BUTTON1);
 			if((currButton == 0) && (prevButton != 0))
@@ -447,6 +426,7 @@ Void startproject(UArg arg0, UArg arg1)
 			prevButton = currButton;
 			Task_sleep(50);
 		}
+    	*/
     }
 
     // Set the color of LED to indicate which mode we are in
@@ -584,4 +564,15 @@ Void startproject(UArg arg0, UArg arg1)
             Task_exit();
         }
     }
+}
+
+void SimpleLinkGeneralEventHandler(SlDeviceEvent_t *pDevEvent)
+{
+    if(!pDevEvent)
+    {
+        return;
+    }
+    System_printf("[GENERAL EVENT] - ID=[%d] Sender=[%d]\n\n",
+               pDevEvent->EventData.deviceEvent.status,
+               pDevEvent->EventData.deviceEvent.sender);
 }

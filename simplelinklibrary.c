@@ -256,5 +256,3 @@ int unregisterMdnsService()
 	iretVal = sl_NetAppMDNSUnRegisterService((const signed char *)mdnsServiceName,strlen(mdnsServiceName));
 	return iretVal;
 }
-
-

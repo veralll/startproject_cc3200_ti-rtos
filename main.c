@@ -24,6 +24,7 @@
 //*****************************************************************************
 
 /* XDCtools Header files */
+
 #include <xdc/std.h>
 #include <xdc/cfg/global.h>
 #include <xdc/runtime/Error.h>
@@ -35,17 +36,39 @@
 #include <ti/sysbios/knl/Task.h>
 
 /* TI-RTOS Header files */
-#include <ti/drivers/GPIO.h>
 
+#include <ti/drivers/gpio.h>
 /* Example/Board Header files */
 #include "Board.h"
 
 ///* SimpleLink Wi-Fi Host Driver Header files */
-//#include <simplelink.h>
+#include <simplelink.h>
 #include <osi.h>
 
 /* Spawn Task Priority */
 int SPAWN_TASK_PRI = 3;
+
+
+#include "triggers.h"
+
+
+int gpioblink(TriggerData* data) {
+	GPIO_toggle(Board_LED0);
+	return 0;
+}
+
+int setupBlink() {
+	return 0;
+}
+
+void buttonTrigger(unsigned int index) {
+	if (index == 1) {
+		System_printf("index: %d\n", index);
+		System_flush();
+		Action* blink = newAction("blink", &setupBlink, &gpioblink);
+		fireAction(blink, NULL);
+	}
+}
 
 /*
  *  ======== main ========
@@ -70,6 +93,10 @@ int main(void)
     GPIO_write(Board_LED1, Board_LED_ON); //Orange
     GPIO_write(Board_LED2, Board_LED_ON); //Green
 
+    GPIO_setCallback(Board_BUTTON1, &buttonTrigger);
+    GPIO_enableInt(Board_BUTTON1);
+
+
     /*
      * The SimpleLink Host Driver requires a mechanism to allow functions to
      * execute in temporary context.  The SpawnTask is created to handle such
@@ -82,6 +109,8 @@ int main(void)
 
     /* Start BIOS */
     BIOS_start();
+
+    while(1) {}
 
     return (0);
 }
